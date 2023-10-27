@@ -13,15 +13,15 @@ class Contect(val id:String, val name: String,val emailid: String,val phoneNo: S
         * "phone":"+1 (817) 545-3660",
         * "address":"311 Livonia Avenue, Belva, Ohio, 6019"}*/
     constructor(jsonObject: JSONObject):this("","","","","",0.0,0.0) {
-        id = jsonObject.getString("id")
-        emailid = jsonObject.getString("email")
-        phoneNo = jsonObject.getString("phone")
+        var id = jsonObject.getString("id")
+        var emailid = jsonObject.getString("email")
+        var phoneNo = jsonObject.getString("phone")
         val profileJson = jsonObject.getJSONObject("profile")
-        name = profileJson.getString("name")
-        address = profileJson.getString("address")
+        var name = profileJson.getString("name")
+        var address = profileJson.getString("address")
         val locationJson = profileJson.getJSONObject("location")
-        latitude = locationJson.getDouble("lat")
-        longitude = locationJson.getDouble("long")
+        var latitude = locationJson.getDouble("lat")
+        var longitude = locationJson.getDouble("long")
     }
 
 }

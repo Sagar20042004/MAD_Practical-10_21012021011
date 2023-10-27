@@ -14,6 +14,8 @@ import org.json.JSONException
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
+
+    val listView : ListView = findViewById(R.id.listView1)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,7 +37,7 @@ class MainActivity : AppCompatActivity() {
                 personList.add(person)
             }
 
-            listview1.adapter = PersonAdapter(this, personList)
+            listView.adapter = ContactAdapter(this, personList)
         } catch (ee: JSONException) {
             ee.printStackTrace()
         }
