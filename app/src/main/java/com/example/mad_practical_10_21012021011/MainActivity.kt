@@ -15,7 +15,7 @@ import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
-    val listView : ListView = findViewById(R.id.listView1)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,20 +23,21 @@ class MainActivity : AppCompatActivity() {
 
         floatingBt.setOnClickListener {
             sendDataToListView()
-            Intent(this,MapsActivity::class.java).apply { startActivity(this) }
+//            Intent(this,MapsActivity::class.java).apply { startActivity(this) }
         }
 
     }
     private fun getPersonDetailsFromJson(sJson: String?) {
-        val personList = ArrayList<Contect>()
+        val personList = ArrayList<Contact>()
         try {
             val jsonArray = JSONArray(sJson)
             for (i in 0 until jsonArray.length()) {
                 val jsonObject = jsonArray[i] as JSONObject
-                val person = Contect(jsonObject)
+                val person = Contact(jsonObject)
                 personList.add(person)
             }
 
+            val listView : ListView = findViewById(R.id.listView1)
             listView.adapter = ContactAdapter(this, personList)
         } catch (ee: JSONException) {
             ee.printStackTrace()

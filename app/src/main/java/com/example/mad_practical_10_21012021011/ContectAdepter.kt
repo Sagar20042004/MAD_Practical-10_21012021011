@@ -11,15 +11,17 @@ import android.widget.TextView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class ContactAdapter(context: Context, private val array: ArrayList<Contect>) : ArrayAdapter<Contect>(context, 0, array) {
+class ContactAdapter(context: Context, private val array: ArrayList<Contact>) : ArrayAdapter<Contact>(context, 0, array) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.listviewlayout, parent, false)
 
         val contact = getItem(position) // Access the Contact object from the adapter
 
         view.findViewById<TextView>(R.id.textView2).text = contact?.name
-        view.findViewById<TextView>(R.id.textView3).text = contact?.phoneNo
-        view.findViewById<TextView>(R.id.textView4).text = contact?.emailid
+        view.findViewById<TextView>(R.id.textView3).text = contact?.phoneno
+        view.findViewById<TextView>(R.id.textView4).text = contact?.address
+        view.findViewById<TextView>(R.id.textView5).text = contact?.emailid
+
 
 
         val button1: FloatingActionButton = view.findViewById(R.id.floatinfBt)

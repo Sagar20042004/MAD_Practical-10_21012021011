@@ -8,7 +8,7 @@ import java.net.ProtocolException
 import java.net.URL
 
 class HttpRequest {
-    private val TAG = "com.example.mad_practical_10_21012021011.HttpRequest"
+    private val TAG = "HttpRequest"
     fun makeServiceCall(reqUrl: String?,token:String?=null): String? {
         var response: String? = null
         try {
@@ -26,6 +26,7 @@ class HttpRequest {
             Log.e(TAG, "ProtocolException: " + e.message)
         } catch (e: IOException) {
             Log.e(TAG, "IOException: " + e.message)
+            e.printStackTrace()
         } catch (e: Exception) {
             Log.e(TAG, "Exception: " + e.message)
         }
@@ -51,5 +52,4 @@ class HttpRequest {
         }
         return sb.toString()
     }
-
 }
